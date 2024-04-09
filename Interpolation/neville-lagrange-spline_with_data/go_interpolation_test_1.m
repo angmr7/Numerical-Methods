@@ -48,3 +48,18 @@ semilogy(lambdat,n,'-g');
 xlabel('\lambda(nm)');
 ylabel('n');
 
+%******************************************************
+%Interpolacion por el metodo de Spline.
+%******************************************************
+
+for i=1:size(lambdat,1)
+    kt(i) = spline_interpolation(lambda,k,lambdat(i));
+end
+
+figure(4);
+plot(lambda,k,'ob');
+hold on;
+plot(lambdat,kt,'.r');
+hold off;
+ylabel('k(1/cm)');
+xlabel('\lambda(nm)')
